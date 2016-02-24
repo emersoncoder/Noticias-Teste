@@ -22,6 +22,10 @@
 		<script src="<?php echo site_url('assets/js/bootstrap.js');?>"></script>		
 		<script src="<?php echo site_url('assets/js/inputmask.js');?>"></script>		
 		<script src="<?php echo site_url('assets/js/jquery.inputmask.js');?>"></script>		
+		<script src="<?php echo site_url('assets/js/tinymce/tinymce.min.js');?>"></script>		
+
+		<script src="<?php echo site_url('assets/js/elFinder-master/js/elFinder.js');?>"></script>		
+		<script src="<?php echo site_url('assets/js/elFinder-master/js/jquery.elFinder.js');?>"></script>		
 	</head>
 	<body site_url="<?php echo base_url();?>">
 	    <nav class="navbar navbar-inverse navbar-fixed-top">

@@ -30,8 +30,7 @@
 				return false;
 		}  
 
-
-		public function listar($id_noticias = null)
+		function listar($id_noticias = null)
 		{
 			if ($id_noticias) 
 			{
@@ -49,4 +48,15 @@
 			$query = $this->db->get();
 			return $query->result();
 		}
+
+		function listar_front()
+		{
+			$this->db
+				->select('*')
+				->where('ativo', 1)
+				->from('noticias');
+			$query = $this->db->get();
+			return $query->result();
+		}
+
 	}

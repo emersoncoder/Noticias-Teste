@@ -46,6 +46,42 @@
 	</div>
 </form>
 <script>
+
+tinyMCE.init({
+        mode : "textareas",
+                
+        file_browser_callback : elFinderBrowser,
+                
+        // Theme options - button# indicated the row# only
+        theme_advanced_buttons1 : "newdocument,|,bold,italic,underline,|,justifyleft,justifycenter,justifyright,fontselect,fontsizeselect,formatselect",
+        theme_advanced_buttons2 : "cut,copy,paste,|,bullist,numlist,|,outdent,indent,|,undo,redo,|,link,unlink,anchor,image,|,code,preview,|,forecolor,backcolor",
+        theme_advanced_buttons3 : "insertdate,inserttime,|,spellchecker,advhr,,removeformat,|,sub,sup,|,charmap,emotions",      
+        theme_advanced_toolbar_location : "top",
+        theme_advanced_toolbar_align : "left",
+        theme_advanced_statusbar_location : "bottom",
+        theme_advanced_resizing : true
+});
+
+
+function elFinderBrowser (field_name, url, type, win) {
+  var elfinder_url = 'http://localhost/noticias/assets/js/elfinder/elfinder.html';    // use an absolute path!
+  tinyMCE.activeEditor.windowManager.open({
+    file: elfinder_url,
+    title: 'elFinder 2.0',
+    width: 900,  
+    height: 450,
+    resizable: 'yes',
+    inline: 'yes',    // This parameter only has an effect if you use the inlinepopups plugin!
+    popup_css: false, // Disable TinyMCE's default popup CSS
+    close_previous: 'no'
+  }, {
+    window: win,
+    input: field_name
+  });
+  return false;
+}
+
+
 $(function(){
 $("#data").inputmask("99/99/9999",{ "placeholder": "__/__/___" });
 				$('#form_noticias').submit(function(e){
