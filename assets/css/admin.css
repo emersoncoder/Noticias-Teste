@@ -103,3 +103,30 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.pag{text-align:center; size:18px;}
+
+/* unvisited link */
+.pag a {
+    size:18px;margin:10px;padding:10px;
+}
+
+/* unvisited link */
+.pag a:link {
+    size:18px;margin:10px;padding:10px;
+}
+
+/* visited link */
+.pag  a:visited {
+    size:18px;margin:10px;padding:10px;
+}
+
+/* mouse over link */
+.pag  a:hover {
+    size:18px;margin:10px;padding:10px;
+}
+
+/* selected link */
+.pag  a:active {
+    size:18px;margin:10px;padding:10px;
+}

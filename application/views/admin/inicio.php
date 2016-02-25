@@ -23,9 +23,7 @@
 		<script src="<?php echo site_url('assets/js/inputmask.js');?>"></script>		
 		<script src="<?php echo site_url('assets/js/jquery.inputmask.js');?>"></script>		
 		<script src="<?php echo site_url('assets/js/tinymce/tinymce.min.js');?>"></script>		
-
-		<script src="<?php echo site_url('assets/js/elFinder-master/js/elFinder.js');?>"></script>		
-		<script src="<?php echo site_url('assets/js/elFinder-master/js/jquery.elFinder.js');?>"></script>		
+		<script src="<?php echo site_url('assets/elFinder-2.1/js/elfinder.full.js');?>"></script>		
 	</head>
 	<body site_url="<?php echo base_url();?>">
 	    <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -115,6 +113,7 @@
 								?>
 							</tbody>
 						</table>
+						<p class="pag"><?php echo  $paginas;?></p>
 					</div>
 				</div>
 			</div>

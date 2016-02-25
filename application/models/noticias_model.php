@@ -18,6 +18,28 @@
 				return $this->db->insert('noticias', $dados); 	
 			}
 		}
+	    
+	    function listarNoticias($offset = null)
+	    {
+
+	        $this->db->where('ativo', 1);
+
+	        $query = $this->db->get('noticias', 4, $offset);
+
+	        return $query->result();
+
+	    }
+
+	    function listarNoticiasTotal()
+	    {
+
+	        $this->db->where('ativo', 1);
+
+	        $query = $this->db->get('noticias');
+
+	        return $query->result();
+
+	    }	    
 
 		function excluir($id_noticias)
 		{

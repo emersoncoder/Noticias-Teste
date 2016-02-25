@@ -10,9 +10,16 @@ class Noticias extends CI_Controller {
 		$this->load->model('noticias_model');
 	}
 
-	function index()
+	function index($offset = null)
 	{
-		$dados['noticias'] = $this->noticias_model->listar();
+		$dados['noticias']        = $this->noticias_model->listarNoticias($offset);
+		$config['base_url']       = site_url() .'/admin/noticias/index/';
+		$config['total_rows']     = count($this->noticias_model->listarNoticiasTotal());
+		$config['per_page']       = '4';
+		$config['first_link']     = 'Início';
+		$config['last_link']      = 'Fim';
+		$this->pagination->initialize($config);
+		$dados['paginas']         = $this->pagination->create_links();
 		$this->load->view('admin/inicio', $dados);
 	}
 
@@ -47,10 +54,12 @@ class Noticias extends CI_Controller {
 
 					$dados['titulo']	= $this->input->post('titulo');
 					$dados['resumo']	= $this->input->post('resumo');
+
 					$data 				= $this->input->post('data');
 					$data 				= explode('/', $data);
 					$data 				= $data[2] . '-' . $data[1] . '-' . $data[0] . ' ' . date('H:i:s');
 					$dados['data']		= $data;
+
 					$dados['descricao']	= $this->input->post('descricao');
 					$dados['publicado']	= $this->input->post('publicado');
 					$consulta			= $this->noticias_model->gravar($dados);
@@ -116,7 +125,6 @@ class Noticias extends CI_Controller {
 
 	function excluir()
 	{
-
 		try{
 
 			$id_noticias = $this->input->post('id_noticias');
@@ -135,8 +143,5 @@ class Noticias extends CI_Controller {
 		{
 			echo output_json($e->getMessage(), FALSE);
 		}
-
-
 	}
-
 }
